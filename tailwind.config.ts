@@ -15,7 +15,8 @@ export default {
         background: "var(--background)",
       },
       fontFamily: {
-        kia: ['var(--font-kia)'],
+        kiaBold: ['var(--font-kia-bold)'],
+        kiaRegular: ['var(--font-kia-regular)']
       }
     },
   },

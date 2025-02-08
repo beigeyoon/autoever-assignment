@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import localFont from 'next/font/local';
-
-const kiaSignatureFix = localFont({
-  src: '../../public/fonts/KiaSignatureFixRegular.ttf',
-  variable: '--font-kia',
-  display: 'swap'
-});
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+import { kiaSignatureFixRegular, kiaSignatureFixBold } from '@/utils/fonts';
 
 export const metadata: Metadata = {
   title: '서비스 도입 FAQ | 위블 비즈(Wible Biz) - 친환경 모빌리티 서비스',
@@ -44,7 +40,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={kiaSignatureFix.className}>{children}</body>
+      <body
+        className={`${kiaSignatureFixBold.variable} ${kiaSignatureFixRegular.variable} font-kiaBold`}>
+        <NavBar />
+        <div className="h-full w-full pt-[80px]">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }
