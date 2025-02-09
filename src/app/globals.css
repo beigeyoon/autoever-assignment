@@ -8,3 +8,12 @@
   --accent: #70d7bf;
   --background: #f8f8f8;
 }
+
+.bg-gradient {
+  background-image: linear-gradient(
+    transparent 9px,
+    #000 0,
+    #000 11px,
+    transparent 0
+  );
+}
