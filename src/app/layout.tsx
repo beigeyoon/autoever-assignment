@@ -43,7 +43,9 @@ export default function RootLayout({
       <body
         className={`${kiaSignatureFixBold.variable} ${kiaSignatureFixRegular.variable} font-kiaBold`}>
         <NavBar />
-        <div className="h-full w-full pt-[80px]">{children}</div>
+        <div className="md-down:pt-[56px] h-full w-full pt-[80px]">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

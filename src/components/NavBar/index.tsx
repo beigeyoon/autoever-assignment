@@ -14,7 +14,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="fixed top-0 flex h-[56px] w-full justify-between px-[48px] sm:px-[24px] lg:h-[80px]">
+    <div className="fixed top-0 flex h-[56px] w-full justify-between bg-white px-[48px] sm:px-[24px] lg:h-[80px]">
       <Link
         href="https://wiblebiz.kia.com/"
         className="flex items-center">

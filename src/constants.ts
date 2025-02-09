@@ -23,3 +23,13 @@ export const NavBarMenus = [
     href: 'https://wiblebiz.kia.com/Counsel',
   },
 ];
+
+export enum TAB {
+  CONSULT = '서비스 도입',
+  USAGE = '서비스 이용',
+};
+
+export const TabValue: Record<TAB, 'CONSULT' | 'USAGE'> = {
+  [TAB.CONSULT]: 'CONSULT',
+  [TAB.USAGE]: 'USAGE',
+};
