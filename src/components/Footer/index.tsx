@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="flex h-[176px] flex-row-reverse items-center justify-between bg-primary px-[48px] sm:h-[284px] sm:px-[24px] sm:pb-[29px] sm:pt-[18px] md:h-[296px] md:justify-between md:pb-[44px] md:pt-[34px] md-down:flex-col md-down:items-start">
       <div className="text-right md-down:text-left">
-        <div className="mb-[10px] flex items-center text-[16px] text-white sm:h-[48px] sm:text-[14px] md:h-[52px] md-down:mb-0">
+        <div className="mb-[10px] flex items-center text-[16px] text-white sm:h-[48px] sm:text-[14px] md:h-[52px] lg:justify-end md-down:mb-0">
           <Link
             href="https://privacy.kia.com/overview/full-policy"
             className="ml-[24px] md-down:ml-0">

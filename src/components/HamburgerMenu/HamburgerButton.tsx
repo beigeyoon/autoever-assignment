@@ -8,7 +8,7 @@ const HamburgerButton = ({
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
-      className="relative flex h-[40px] w-[40px] flex-col items-center justify-center space-y-1 p-[10px]">
+      className="relative flex h-[20px] w-[20px] flex-col items-center justify-center space-y-1">
       <span
         className={`block h-[2px] w-full rounded bg-gray-800 transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-y-[6px] rotate-45' : ''

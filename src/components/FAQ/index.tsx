@@ -12,6 +12,7 @@ import {
 } from '@tanstack/react-query';
 import { Category } from '@/types';
 import Search from './Search';
+import Icon from '../Icon';
 
 const queryClient = new QueryClient();
 
@@ -96,6 +97,17 @@ const FAQContent = () => {
         showMore={fetchNextPage}
         hasNextPage={hasNextPage}
       />
+      {faqs.length === 0 && (
+        <div className="flex flex-col items-center border-b py-[160px] text-secondary md-down:py-[120px]">
+          <Icon
+            iconName="no_data"
+            className="mb-[16px] h-[56px] w-[56px] sm:mb-[8px] sm:h-[32px] sm:w-[32px] md:mb-[12px] md:h-[48px] md:w-[48px]"
+          />
+          <span className="font-kiaRegular text-[18px] sm:text-[14px] md:text-[16px]">
+            검색결과가 없습니다.
+          </span>
+        </div>
+      )}
     </>
   );
 };
