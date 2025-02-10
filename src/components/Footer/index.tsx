@@ -1,18 +1,15 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Icon from '../Icon';
 
 const Footer = () => {
   return (
-    <div className="bg-primary flex h-[176px] items-center justify-between px-[48px]">
+    <div className="flex h-[176px] items-center justify-between bg-primary px-[48px]">
       <div className="flex-1">
-        <Image
-          src="/images/kia_logo.svg"
-          height={56}
-          width={112}
-          alt="kia-logo"
-          className="mb-[2px]"
+        <Icon
+          iconName="kia_logo"
+          className="mb-[2px] h-[56px] w-[112px]"
         />
-        <div className="text-secondary font-kiaRegular min-w-[140px] text-[14px] leading-[24px]">
+        <div className="min-w-[140px] font-kiaRegular text-[14px] leading-[24px] text-secondary">
           <div className="inline-block">© 2023 KIA CORP.</div>
           <div className="inline-block">All Rights Reserved.</div>
         </div>
@@ -30,7 +27,7 @@ const Footer = () => {
             이용약관
           </Link>
         </div>
-        <div className="text-secondary font-kiaRegular text-[14px]">
+        <div className="font-kiaRegular text-[14px] text-secondary">
           <div className="ml-[12px] inline-block">
             서울특별시 서초구 헌릉로 12
           </div>

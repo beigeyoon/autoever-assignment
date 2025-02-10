@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Icon from '../Icon';
 
 interface Props {
   keyword: string;
@@ -43,15 +44,20 @@ const Search = ({ keyword, setKeyword, resetSearch, resultCount }: Props) => {
           <div className="absolute right-0 top-0 flex h-full items-center">
             {inputValue && (
               <button
-                type="button"
                 onClick={clearKeyword}
-                className="md:x-[40px] md:y-[24px] relative h-[24px] w-[40px] before:absolute before:inset-0 before:bg-[url('/icons/clear.svg')] before:bg-contain before:bg-center before:bg-no-repeat before:content-[''] sm:h-[20px] sm:w-[28px]"
-              />
+                type="button">
+                <Icon
+                  iconName="clear"
+                  className="md:x-[40px] md:y-[24px] h-[24px] w-[40px] sm:h-[20px] sm:w-[28px]"
+                />
+              </button>
             )}
-            <button
-              type="submit"
-              className="relative h-[32px] w-[54px] before:absolute before:inset-0 before:bg-[url('/icons/search.svg')] before:bg-contain before:bg-center before:bg-no-repeat before:content-[''] sm:h-[24px] sm:w-[38px] md:h-[28px] md:w-[46px]"
-            />
+            <button type="submit">
+              <Icon
+                iconName="search"
+                className="h-[32px] w-[54px] sm:h-[24px] sm:w-[38px] md:h-[28px] md:w-[46px]"
+              />
+            </button>
           </div>
         </form>
       </div>
@@ -63,7 +69,10 @@ const Search = ({ keyword, setKeyword, resetSearch, resultCount }: Props) => {
           <button
             onClick={resetSearch}
             className="flex items-center font-kiaRegular sm:text-[14px]">
-            <div className="relative h-[24px] w-[24px] before:absolute before:inset-0 before:bg-[url('/icons/init.svg')] before:bg-contain before:bg-center before:bg-no-repeat before:content-[''] sm:w-[20px]" />
+            <Icon
+              iconName="init"
+              className="h-[24px] w-[24px] sm:w-[20px]"
+            />
             검색초기화
           </button>
         </div>

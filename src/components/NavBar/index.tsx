@@ -3,7 +3,7 @@
 import { NavBarMenus } from '@/constants';
 import Menu from './Menu';
 import Link from 'next/link';
-import Image from 'next/image';
+import Icon from '../Icon';
 import HamburgerMenu from '../HamburgerMenu';
 import { NAV_BAR_MENU } from '@/constants';
 import { useState, useEffect } from 'react';
@@ -31,13 +31,17 @@ const NavBar = () => {
       <Link
         href="https://wiblebiz.kia.com/"
         className="flex items-center">
-        <div className="relative lg:h-full lg:w-[160px] md-down:h-[40px] md-down:w-[120px]">
+        <Icon
+          iconName="wible_BIZ"
+          className="lg:h-full lg:w-[160px] md-down:h-[40px] md-down:w-[120px]"
+        />
+        {/* <div className="relative lg:h-full lg:w-[160px] md-down:h-[40px] md-down:w-[120px]">
           <Image
             src="/images/wible_BIZ.svg"
             alt="wible_biz_logo"
             layout="fill"
           />
-        </div>
+        </div> */}
       </Link>
       <ul className="mr-[-20px] hidden lg:flex">
         {NavBarMenus.map((menu, idx) => (

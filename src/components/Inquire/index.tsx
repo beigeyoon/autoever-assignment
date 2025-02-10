@@ -1,5 +1,6 @@
 import { InquireMenus } from '@/constants';
 import { InquireMenu } from '@/types';
+import Icon from '../Icon';
 
 const Inquire = () => {
   const downloadMenu = InquireMenus[0];
@@ -30,12 +31,9 @@ const MenuButton = ({ menu }: { menu: InquireMenu }) => {
       download={menu.id === 'download'}
       target="_blank"
       className={`flex h-[80px] w-full items-center justify-center border border-primary sm:h-[72px] ${menu.id === 'talk' ? 'md:col-span-2 lg:col-span-1' : ''}`}>
-      <div
-        className="relative mr-[8px] h-[48px] w-[48px] before:absolute before:inset-0 before:bg-contain before:bg-center before:bg-no-repeat before:content-[''] md-down:h-[32px] md-down:w-[32px]"
-        style={{
-          backgroundImage: `url('/icons/${menu.icon}.svg')`,
-          backgroundSize: '100% 100%'
-        }}
+      <Icon
+        iconName={menu.icon}
+        className="mr-[8px] h-[48px] w-[48px] md-down:h-[32px] md-down:w-[32px]"
       />
       <div className="flex flex-col leading-6">
         <span className="text-[18px] md-down:text-[16px]">{menu.title}</span>

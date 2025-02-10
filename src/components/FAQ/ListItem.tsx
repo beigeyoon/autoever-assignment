@@ -1,6 +1,7 @@
 import { TAB } from '@/constants';
 import { Faq } from '@/types';
 import { useState } from 'react';
+import Icon from '../Icon';
 
 interface Props {
   faq: Faq;
@@ -28,11 +29,11 @@ const ListItem = ({ faq, selectedTab }: Props) => {
             </div>
             {selectedTab === TAB.USAGE && (
               <>
-                <div
-                  className="befor:bg-secondary relative mx-[4px] my-auto h-[16px] w-[16px] opacity-30 before:absolute before:inset-0 before:bg-[url('/icons/toggle.svg')] before:bg-contain before:bg-center before:bg-no-repeat before:content-[''] sm:mx-[2px] lg:hidden"
-                  style={{
-                    transform: 'rotate(270deg)',
-                    transformOrigin: 'center center'
+                <Icon
+                  iconName="toggle"
+                  className="befor:bg-secondary mx-[4px] my-auto h-[16px] w-[16px] opacity-30 sm:mx-[2px] lg:hidden"
+                  customStyle={{
+                    transform: 'rotate(270deg)'
                   }}
                 />
                 <div className="flex items-center justify-center font-kiaRegular text-secondary sm:text-[12px] md:text-[16px] lg:w-[148px] md-down:w-fit">
@@ -45,9 +46,9 @@ const ListItem = ({ faq, selectedTab }: Props) => {
             {faq.question}
           </div>
         </div>
-        <button
-          onClick={toggleOpen}
-          className={`absolute right-0 h-[32px] w-[56px] transition-transform duration-300 before:absolute before:inset-0 before:bg-[url('/icons/toggle.svg')] before:bg-contain before:bg-center before:bg-no-repeat before:content-[''] sm:h-[24px] sm:w-[28px] md:h-[28px] ${
+        <Icon
+          iconName="toggle"
+          className={`absolute right-0 h-[32px] w-[56px] transition-transform duration-300 sm:h-[24px] sm:w-[28px] md:h-[28px] ${
             isOpen ? 'rotate-180' : 'rotate-0'
           }`}
         />
