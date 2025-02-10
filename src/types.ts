@@ -10,3 +10,11 @@ export type Faq = {
   question: string;
   answer: string;
 };
+
+export type InquireMenu = {
+  id: string;
+  title: string;
+  desc?: string;
+  href: string;
+  icon: string;
+};
