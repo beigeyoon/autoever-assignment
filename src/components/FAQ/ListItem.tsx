@@ -31,7 +31,7 @@ const ListItem = ({ faq, selectedTab }: Props) => {
               <>
                 <Icon
                   iconName="toggle"
-                  className="befor:bg-secondary mx-[4px] my-auto h-[16px] w-[16px] opacity-30 sm:mx-[2px] lg:hidden"
+                  className="mx-[4px] my-auto h-[16px] w-[16px] opacity-30 sm:mx-[2px] lg:hidden"
                   customStyle={{
                     transform: 'rotate(270deg)'
                   }}

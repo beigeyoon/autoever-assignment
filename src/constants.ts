@@ -1,4 +1,4 @@
-import { InquireMenu } from "./types";
+import { InquireMenu, ProcessStep } from "./types";
 
 export enum NAV_BAR_MENU {
   'ABOUT' = '서비스 소개',
@@ -55,5 +55,32 @@ export const InquireMenus: InquireMenu[] = [
     desc: 'ID: Wible Biz(위블 비즈)',
     href: 'https://pf.kakao.com/_xfLxjdb',
     icon: 'talk',
+  },
+];
+
+export const ProcessSteps: ProcessStep[] = [
+  {
+    id: 'register',
+    title: '1. 문의 등록',
+    desc: '상담 문의를 등록해 주시면, 담당자가 맞춤형 상담을 제공합니다.',
+    icon: 'register',
+  },
+  {
+    id: 'admin',
+    title: '2. 관리자 설정',
+    desc: '관리자 Web 접속 후 결제방식 및 회사정보를 설정합니다.',
+    icon: 'admin',
+  },
+  {
+    id: 'join',
+    title: '3. 임직원 가입',
+    desc: '사용자 App에서 회원가입 후 소속 회사 인증을 진행합니다.',
+    icon: 'join',
+  },
+  {
+    id: 'usage',
+    title: '4. 서비스 이용',
+    desc: '사용자 App에서 차량 예약을 하고 위블존에서 바로 이용하세요!',
+    icon: 'usage',
   },
 ];

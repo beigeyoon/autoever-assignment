@@ -1,5 +1,6 @@
 import FAQ from '@/components/FAQ';
 import Inquire from '@/components/Inquire';
+import Process from '@/components/Process';
 
 export default async function Page() {
   return (
@@ -12,6 +13,7 @@ export default async function Page() {
       </h1>
       <FAQ />
       <Inquire />
+      <Process />
     </div>
   );
 }

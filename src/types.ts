@@ -18,3 +18,10 @@ export type InquireMenu = {
   href: string;
   icon: string;
 };
+
+export type ProcessStep = {
+  id: string;
+  title: string;
+  desc: string;
+  icon: string;
+};
