@@ -25,3 +25,10 @@ export type ProcessStep = {
   desc: string;
   icon: string;
 };
+
+export type AppstoreMenu = {
+  id: string;
+  title: string;
+  icon: string;
+  href: string;
+};

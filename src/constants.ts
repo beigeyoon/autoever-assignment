@@ -1,4 +1,4 @@
-import { InquireMenu, ProcessStep } from "./types";
+import { AppstoreMenu, InquireMenu, ProcessStep } from "./types";
 
 export enum NAV_BAR_MENU {
   'ABOUT' = '서비스 소개',
@@ -82,5 +82,20 @@ export const ProcessSteps: ProcessStep[] = [
     title: '4. 서비스 이용',
     desc: '사용자 App에서 차량 예약을 하고 위블존에서 바로 이용하세요!',
     icon: 'usage',
+  },
+];
+
+export const AppstoreMenus: AppstoreMenu[] = [
+  {
+    id: 'google',
+    title: 'Google Play',
+    icon: 'google_play',
+    href: 'https://play.google.com/store/apps/details?id=kor.mop.user.app',
+  },
+  {
+    id: 'apple',
+    title: 'App Store',
+    icon: 'app_store',
+    href: '',
   },
 ];
