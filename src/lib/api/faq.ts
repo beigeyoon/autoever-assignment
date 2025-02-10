@@ -6,14 +6,37 @@ export async function getCategory(tab: 'CONSULT' | 'USAGE') {
   })
 }
 
-export async function getFaq(
+interface GetFaqProps {
   tab: 'CONSULT' | 'USAGE',
-  pagination: number = 0,
-) {
+  pagination: number,
+  faqCategoryID: string,
+  question: string,
+}
+
+export async function getFaq({
+  tab, pagination = 0, faqCategoryID, question
+}: GetFaqProps) {
   const limit = 10;
   const offset = pagination * limit;
+
+  const searchParams = new URLSearchParams({
+    tab,
+    limit: limit.toString(),
+    offset: offset.toString(),
+  });
+
+  if (faqCategoryID.length > 0 && faqCategoryID !== 'ALL') {
+    searchParams.append('faqCategoryID', faqCategoryID);
+  };
+
+  if (question.length > 0) {
+    searchParams.append('question', question.toLocaleLowerCase());
+  };
+
+  const endpoint = `/api/faq?${searchParams.toString()}`;
+
   
-  return await apiFetch(`/api/faq?tab=${tab}&limit=${limit}&offset=${offset}`, {
+  return await apiFetch(endpoint, {
     method: 'GET',
   });
 }

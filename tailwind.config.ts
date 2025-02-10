@@ -19,8 +19,8 @@ export default {
         kiaRegular: ['var(--font-kia-regular)']
       },
       screens: {
-        'sm': { max: '643px' },
-        'md': { min: '644px', max: '1023px' },
+        'sm': { max: '743px' },
+        'md': { min: '744px', max: '1023px' },
         'md-down': { max: '1023px' },
         'lg': { min: '1024px' },
       },

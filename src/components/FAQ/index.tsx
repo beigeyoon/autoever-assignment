@@ -1,6 +1,6 @@
 'use client';
 import { getCategory, getFaq } from '@/lib/api/faq';
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { TAB, TabValue } from '@/constants';
 import Tabs from './Tabs';
 import List from './List';
@@ -11,26 +11,39 @@ import {
   useInfiniteQuery
 } from '@tanstack/react-query';
 import { Category } from '@/types';
+import Search from './Search';
 
 const queryClient = new QueryClient();
 
 const FAQContent = () => {
-  const [tab, setTab] = useState<TAB>(TAB.CONSULT);
+  const [selectedTab, setSelectedTab] = useState<TAB>(TAB.CONSULT);
+  const [selectedCategory, setSelectedCategory] =
+    useState<Category['categoryID']>('ALL');
+  const [keyword, setKeyword] = useState<string>('');
 
   const { data: categories, isLoading: isLoadingCategories } = useQuery({
-    queryKey: ['categories', tab],
-    queryFn: () => getCategory(TabValue[tab]),
-    select: data => data.data as Category[]
+    queryKey: ['categories', selectedTab],
+    queryFn: () => getCategory(TabValue[selectedTab]),
+    select: data => [
+      { categoryID: 'ALL', name: '전체' },
+      ...(data.data as Category[])
+    ]
   });
 
   const {
-    data,
+    data: faqData,
     isLoading: isLoadingFaqs,
     fetchNextPage,
     hasNextPage
   } = useInfiniteQuery({
-    queryKey: ['faqs', tab],
-    queryFn: ({ pageParam }) => getFaq(TabValue[tab], pageParam),
+    queryKey: ['faqs', selectedTab, selectedCategory, keyword],
+    queryFn: ({ pageParam }) =>
+      getFaq({
+        tab: TabValue[selectedTab],
+        pagination: pageParam,
+        faqCategoryID: selectedCategory,
+        question: keyword
+      }),
     initialPageParam: 0,
     getNextPageParam: lastPage => {
       // @ts-expect-error NOTE: 타입 구현이 복잡해지는 것을 방지
@@ -41,18 +54,44 @@ const FAQContent = () => {
     }
   });
 
+  const resultCount = useMemo(
+    // @ts-expect-error NOTE: 타입 구현이 복잡해지는 것을 방지
+    () => faqData?.pages[0].data.pageInfo.totalRecord,
+    [faqData]
+  );
+
+  const changeTap = useCallback((targetTab: TAB) => {
+    setSelectedTab(targetTab);
+    setSelectedCategory('ALL');
+    setKeyword('');
+  }, []);
+
+  const resetSearch = useCallback(() => {
+    setSelectedCategory('ALL');
+    setKeyword('');
+  }, []);
+
   // @ts-expect-error NOTE: 타입 구현이 복잡해지는 것을 방지
-  const faqs = data?.pages.flatMap(page => page.data.items) || [];
+  const faqs = faqData?.pages.flatMap(page => page.data.items) || [];
 
   if (isLoadingCategories || isLoadingFaqs) return <></>;
   return (
     <>
       <Tabs
-        tab={TabValue[tab]}
-        changeTab={setTab}
+        tab={TabValue[selectedTab]}
+        changeTab={changeTap}
+      />
+      <Search
+        keyword={keyword}
+        setKeyword={setKeyword}
+        resetSearch={resetSearch}
+        resultCount={resultCount}
       />
       <List
+        selectedTab={selectedTab}
         categories={categories || []}
+        selectedCategory={selectedCategory}
+        changeCategory={setSelectedCategory}
         faqs={faqs || []}
         showMore={fetchNextPage}
         hasNextPage={hasNextPage}
