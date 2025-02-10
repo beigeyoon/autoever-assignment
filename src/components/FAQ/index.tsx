@@ -22,7 +22,7 @@ const FAQContent = () => {
     useState<Category['categoryID']>('ALL');
   const [keyword, setKeyword] = useState<string>('');
 
-  const { data: categories, isLoading: isLoadingCategories } = useQuery({
+  const { data: categories } = useQuery({
     queryKey: ['categories', selectedTab],
     queryFn: () => getCategory(TabValue[selectedTab]),
     select: data => [
@@ -33,7 +33,6 @@ const FAQContent = () => {
 
   const {
     data: faqData,
-    isLoading: isLoadingFaqs,
     fetchNextPage,
     hasNextPage
   } = useInfiniteQuery({
