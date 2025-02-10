@@ -75,7 +75,6 @@ const FAQContent = () => {
   // @ts-expect-error NOTE: 타입 구현이 복잡해지는 것을 방지
   const faqs = faqData?.pages.flatMap(page => page.data.items) || [];
 
-  if (isLoadingCategories || isLoadingFaqs) return <></>;
   return (
     <>
       <Tabs
