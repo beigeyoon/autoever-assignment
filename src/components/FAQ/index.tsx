@@ -13,6 +13,7 @@ import {
 import { Category } from '@/types';
 import Search from './Search';
 import Icon from '../Icon';
+import { useRef } from 'react';
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const FAQContent = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<Category['categoryID']>('ALL');
   const [keyword, setKeyword] = useState<string>('');
+  const searchRef = useRef<{ resetInput: () => void }>(null);
 
   const { data: categories } = useQuery({
     queryKey: ['categories', selectedTab],
@@ -65,11 +67,17 @@ const FAQContent = () => {
     setSelectedTab(targetTab);
     setSelectedCategory('ALL');
     setKeyword('');
+    if (searchRef.current) {
+      searchRef.current.resetInput();
+    }
   }, []);
 
   const resetSearch = useCallback(() => {
     setSelectedCategory('ALL');
     setKeyword('');
+    if (searchRef.current) {
+      searchRef.current.resetInput();
+    }
   }, []);
 
   // @ts-expect-error NOTE: 타입 구현이 복잡해지는 것을 방지
@@ -82,6 +90,7 @@ const FAQContent = () => {
         changeTab={changeTap}
       />
       <Search
+        ref={searchRef}
         keyword={keyword}
         setKeyword={setKeyword}
         resetSearch={resetSearch}
