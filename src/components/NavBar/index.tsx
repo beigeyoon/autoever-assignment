@@ -9,6 +9,7 @@ import { NAV_BAR_MENU } from '@/constants';
 import { useState, useEffect } from 'react';
 
 const NavBar = () => {
+  // eslint-disable-next-line
   const [selectedMenu, setSelectedMenu] = useState<NAV_BAR_MENU>(
     NAV_BAR_MENU.FAQ
   );
@@ -35,13 +36,6 @@ const NavBar = () => {
           iconName="wible_BIZ"
           className="lg:h-full lg:w-[160px] md-down:h-[40px] md-down:w-[120px]"
         />
-        {/* <div className="relative lg:h-full lg:w-[160px] md-down:h-[40px] md-down:w-[120px]">
-          <Image
-            src="/images/wible_BIZ.svg"
-            alt="wible_biz_logo"
-            layout="fill"
-          />
-        </div> */}
       </Link>
       <ul className="mr-[-20px] hidden lg:flex">
         {NavBarMenus.map((menu, idx) => (
