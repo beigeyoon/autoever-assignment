@@ -2,6 +2,7 @@ import Appstore from '@/components/Appstore';
 import FAQ from '@/components/FAQ';
 import Inquire from '@/components/Inquire';
 import Process from '@/components/Process';
+import ScrollToTop from '@/components/ScrollToTop';
 
 export default async function Page() {
   return (
@@ -16,6 +17,7 @@ export default async function Page() {
       <Inquire />
       <Process />
       <Appstore />
+      <ScrollToTop />
     </div>
   );
 }
