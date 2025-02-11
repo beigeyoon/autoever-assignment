@@ -32,3 +32,11 @@ export type AppstoreMenu = {
   icon: string;
   href: string;
 };
+
+export type Term = {
+  termsName: string;
+  termsVersion: number;
+  startDate: number;
+  endDate: number;
+  contents: string;
+};

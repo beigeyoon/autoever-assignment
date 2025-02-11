@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Icon from '../Icon';
+import Modal from '../Modal';
+import Terms from './Terms';
 
 const Footer = () => {
   return (
@@ -8,14 +10,18 @@ const Footer = () => {
         <div className="mb-[10px] flex items-center text-[16px] text-white sm:h-[48px] sm:text-[14px] md:h-[52px] lg:justify-end md-down:mb-0">
           <Link
             href="https://privacy.kia.com/overview/full-policy"
-            className="ml-[24px] md-down:ml-0">
+            className="ml-[24px] hover:underline md-down:ml-0">
             개인정보 처리방침
           </Link>
-          <Link
-            href="https://privacy.kia.com/overview/full-policy"
-            className="ml-[24px] flex items-center sm:ml-[16px] md:h-[52px]">
-            이용약관
-          </Link>
+          <Modal
+            trigger={
+              <div className="ml-[24px] flex cursor-pointer items-center hover:underline sm:ml-[16px] md:h-[52px]">
+                이용약관
+              </div>
+            }
+            title="이용약관"
+            content={<Terms />}
+          />
         </div>
         <div className="font-kiaRegular text-[14px] text-secondary sm:text-[12px] sm:leading-[22px] md:leading-[24px]">
           <div className="ml-[12px] inline-block md-down:ml-0">
@@ -39,7 +45,12 @@ const Footer = () => {
             고객센터: 1833-4964
           </div>
           <div className="ml-[12px] inline-block">
-            제휴문의: <u>wible.biz@kia.com</u>
+            제휴문의:{' '}
+            <a
+              href="mailto:wible.biz@kia.com"
+              className="underline">
+              wible.biz@kia.com
+            </a>
           </div>
         </div>
       </div>
